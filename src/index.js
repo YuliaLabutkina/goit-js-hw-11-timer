@@ -21,6 +21,14 @@ const newDate = new CountdownTimer({
 });
 
 
+const timeLeft = (days, hours, mins, secs) => {
+    daysRef.textContent = days;
+    hoursRef.textContent = hours;
+    minsRef.textContent = mins;
+    secsRef.textContent = secs;
+};
+
+
 const countingRemainingTime = (time) => {
     const days = Math.floor(time / (1000 * 60 * 60 * 24));
     const hours = Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -28,14 +36,6 @@ const countingRemainingTime = (time) => {
     const secs = Math.floor((time % (1000 * 60)) / 1000);
     timeLeft(days, hours, mins, secs);
 
-};
-
-
-const timeLeft = (days, hours, mins, secs) => {
-    daysRef.textContent = days;
-    hoursRef.textContent = hours;
-    minsRef.textContent = mins;
-    secsRef.textContent = secs;
 };
 
 
