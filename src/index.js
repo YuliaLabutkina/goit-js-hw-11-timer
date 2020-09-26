@@ -1,31 +1,26 @@
 import './styles.css';
 
 
-const daysRef = document.querySelector('span[data-value="days"]');
-const hoursRef = document.querySelector('span[data-value="hours"]');
-const minsRef = document.querySelector('span[data-value="mins"]');
-const secsRef = document.querySelector('span[data-value="secs"]');
-
-
 class CountdownTimer {
-    constructor({ selector, targetDate }) {
+    constructor(selector, targetDate) {
       this.selector = selector;
       this.targetDate = targetDate;
+      this.daysRef = document.querySelector(`${selector} span[data-value="days"]`);
+      this.hoursRef = document.querySelector(`${selector} span[data-value="hours"]`);
+      this.minsRef = document.querySelector(`${selector} span[data-value="mins"]`);
+      this.secsRef = document.querySelector(`${selector} span[data-value="secs"]`);
     }
 };
 
 
-const newDate = new CountdownTimer({
-    selector: '#timer-1',
-    targetDate: new Date('Jul 01, 2021'),
-});
+const newDate = new CountdownTimer('#timer-1', new Date('Jul 01, 2021'));
 
 
 const timeLeft = (days, hours, mins, secs) => {
-    daysRef.textContent = days;
-    hoursRef.textContent = hours;
-    minsRef.textContent = mins;
-    secsRef.textContent = secs;
+    newDate.daysRef.textContent = days;
+    newDate.hoursRef.textContent = hours;
+    newDate.minsRef.textContent = mins;
+    newDate.secsRef.textContent = secs;
 };
 
 
