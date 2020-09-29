@@ -3,7 +3,6 @@ import './styles.css';
 
 class CountdownTimer {
     constructor(selector, targetDate) {
-      this.selector = selector;
       this.targetDate = targetDate;
       this.daysRef = document.querySelector(`${selector} span[data-value="days"]`);
       this.hoursRef = document.querySelector(`${selector} span[data-value="hours"]`);
