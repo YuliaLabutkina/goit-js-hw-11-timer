@@ -9,14 +9,13 @@ class CountdownTimer {
       this.hoursRef = document.querySelector(`${selector} span[data-value="hours"]`);
       this.minsRef = document.querySelector(`${selector} span[data-value="mins"]`);
       this.secsRef = document.querySelector(`${selector} span[data-value="secs"]`);
-      this.init ()
     };
 
     timeLeft = (days, hours, mins, secs) => {
         newDate.daysRef.textContent = days;
-        newDate.hoursRef.textContent = hours;
-        newDate.minsRef.textContent = mins;
-        newDate.secsRef.textContent = secs;
+        newDate.hoursRef.textContent = hours < 10 ? `0${hours}` : hours;
+        newDate.minsRef.textContent = mins < 10 ? `0${mins}` : mins;
+        newDate.secsRef.textContent = secs < 10 ? `0${secs}` : secs;
     };
 
 
@@ -31,7 +30,7 @@ class CountdownTimer {
 
     init = () => {
         setInterval(() => {
-            const time = newDate.targetDate.getTime() - Date.now();
+            const time = this.targetDate.getTime() - Date.now();
             this.countingRemainingTime(time);
         }, 1000);
     };
@@ -40,7 +39,7 @@ class CountdownTimer {
 
 
 const newDate = new CountdownTimer('#timer-1', new Date('Jul 01, 2021'));
-
+newDate.init()
 
 // const daysRef = document.querySelector(`span[data-value="days"]`);
 // const hoursRef = document.querySelector(`span[data-value="hours"]`);
